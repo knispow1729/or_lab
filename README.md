@@ -29,10 +29,10 @@ Engleski
 | Serija | Naziv serije turnira pod kojom se turnir održava |
 | Organizator | Lista organizatora turnira. Organizatori mogu, ali i ne moraju biti sponzori turnira|
 | Tip | Održava li se turnir na LAN mreži (offline) ili preko mreže (online) |
-| Lokacija | Mjesto održavanja turnira, ukoliko nije fizička lokacija onda je preko mreže (Internet) |
+| Lokacija | Mjesto održavanja turnira, ako nije fizička lokacija onda je preko mreže (Internet) |
 | Format | Format pod kojim se igra turnir |
 | Nagradni fond | Iznos nagradnog fonda u američkim dolarima |
-| Broj Timova | Broj timovak koji sudjeluju na turniru |
+| Broj Timova | Broj timova koji sudjeluju na turniru |
 | Datum pocetka | Datum početka turnira |
 | Datum zavrsetka | Datum završetka turnira |
 | Verzija igre | Verzija igre na kojoj će se igrati |
