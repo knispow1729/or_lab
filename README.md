@@ -1,1 +1,1 @@
-# or_lab
+# Repozitorij otvorenog skupa podataka o Dota2 turnirima. Podacima se modelira pojedinačni turnir te sponzori i njihov odnos koji odgovara many-to-many odnosu.
