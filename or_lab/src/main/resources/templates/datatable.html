@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Page</title>
+    <link ref="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.2/b-colvis-2.3.2/b-html5-2.3.2/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.13.1/b-2.3.2/b-colvis-2.3.2/b-html5-2.3.2/datatables.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="/datatable_filter.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div>
+    <h3>Filter Dota2 Tournaments</h3>
+    <table id="turniriFilterTable" class="display">
+        <!-- Header Table -->
+        <thead>
+        <tr>
+            <th>Naziv</th>
+            <th>Serija</th>
+            <th>Organizator</th>
+            <th>Tip</th>
+            <th>Lokacija</th>
+            <th>Format</th>
+            <th>Datum Pocetka</th>
+            <th>Datum Zavrsetka</th>
+            <th>Nagradni Fond</th>
+            <th>Broj timova</th>
+            <th>Broj gledatelja</th>
+            <th>Verzija Igre</th>
+            <th>IdTurnir</th>
+        </tr>
+        </thead>
+        <!-- Footer Table -->
+        <tfoot>
+        <tr>
+            <th>Naziv</th>
+            <th>Serija</th>
+            <th>Organizator</th>
+            <th>Tip</th>
+            <th>Lokacija</th>
+            <th>Format</th>
+            <th>Datum Pocetka</th>
+            <th>Datum Zavrsetka</th>
+            <th>Nagradni Fond</th>
+            <th>Broj timova</th>
+            <th>Broj gledatelja</th>
+            <th>Verzija Igre</th>
+            <th>IdTurnir</th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>
