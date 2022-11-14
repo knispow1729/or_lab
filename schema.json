@@ -1,0 +1,1049 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/dota2turniri.json",
+    "title": "Dota2Tournaments Root Schema",
+    "description": "The root schema of the Dota2Tournaments JSON file.",
+    "type": "array",
+    "default": [],
+    "items": {
+        "title": "Dota2Tournaments Schema",
+        "description": "Attributes needed to describe Dota2Tournaments.",
+        "type": "object",
+        "required": [
+            "Naziv",
+            "Serija",
+            "Organizator",
+            "Tip",
+            "Lokacija",
+            "Format",
+            "NagradniFond",
+            "BrojTimova",
+            "DatumPocetka",
+            "DatumZavrsetka",
+            "VerzijaIgre",
+            "BrojGledatelja",
+            "sponzori"
+        ],
+        "properties": {
+            "Naziv": {
+                "title": "The Naziv Schema",
+                "description": "Title of the tournament.",
+                "type": "string",
+                "examples": [
+                    "Autumn Battle",
+                    "Fourth Quaterly",
+                    "Kansas Major",
+                    "Second Quaterly",
+                    "Stockholm Minor",
+                    "First Quaterly",
+                    "Paris Justice",
+                    "Beijing Major",
+                    "Zagreb Minor",
+                    "Third Quaterly",
+                    "Majorly Barcelona 2020",
+                    "The World Championship 2022"
+                ]
+            },
+            "Serija": {
+                "title": "The Serija Schema",
+                "description": "Series that the tournament belongs to.",
+                "type": "string",
+                "examples": [
+                    "Point System",
+                    "Major",
+                    "Minor",
+                    "Barcelona Series",
+                    "The World Championship"
+                ]
+            },
+            "Organizator": {
+                "title": "The Organizator Schema",
+                "description": "List of organizations that made the tournament possible.",
+                "type": "array",
+                "items": {
+                    "title": "A Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "type": "string",
+                    "examples": [
+                        "V2",
+                        "Gen Empower",
+                        "Zed Corporation",
+                        "AI Inc.",
+                        "Blue Corporation",
+                        "Red Corporation"
+                    ]
+                },
+                "examples": [
+                    ["V2",
+                        "Gen Empower"
+                    ],
+                    ["V2",
+                        "Gen Empower",
+                        "Zed Corporation"
+                    ],
+                    [
+                        "AI Inc."],
+                    ["V2",
+                        "Gen Empower"
+                    ],
+                    [
+                        "V2"],
+                    ["V2",
+                        "Gen Empower"
+                    ],
+                    ["Zed Corporation",
+                        "V2"
+                    ],
+                    ["Blue Corporation",
+                        "Gen Empower"
+                    ],
+                    ["Red Corporation",
+                        "V2"
+                    ],
+                    ["V2",
+                        "Gen Empower"
+                    ],
+                    [
+                        "Zed Corporation"],
+                    ["Blue Corporation",
+                        "V2"
+                    ]
+                ]
+            },
+            "Tip": {
+                "title": "The Tip Schema",
+                "description": "Type of tournament.",
+                "type": "string",
+                "examples": [
+                    "Online",
+                    "Offline"
+                ]
+            },
+            "Lokacija": {
+                "title": "The Lokacija Schema",
+                "description": "Location of the tournament.",
+                "type": "string",
+                "examples": [
+                    "Internet",
+                    "Vancouver",
+                    "Kansas",
+                    "Seattle",
+                    "London",
+                    "Paris",
+                    "Beijing",
+                    "Tokyo",
+                    "Singapore"
+                ]
+            },
+            "Format": {
+                "title": "The Format Schema",
+                "description": "Format in which the tournament will be played.",
+                "type": "string",
+                "examples": [
+                    "Double elimination",
+                    "Round-robin",
+                    "Single elimination",
+                    "Double-elimination"
+                ]
+            },
+            "NagradniFond": {
+                "title": "The NagradniFond Schema",
+                "description": "Tournament prize pool.",
+                "type": "integer",
+                "examples": [
+                    225000,
+                    275000,
+                    65000,
+                    75000,
+                    125000,
+                    250000,
+                    50000,
+                    17000000
+                ]
+            },
+            "BrojTimova": {
+                "title": "The BrojTimova Schema",
+                "description": "Number of teams competing.",
+                "type": "integer",
+                "examples": [
+                    12,
+                    16,
+                    10,
+                    8,
+                    20
+                ]
+            },
+            "DatumPocetka": {
+                "title": "The DatumPocetka Schema",
+                "description": "Starting tournament day.",
+                "type": "string",
+                "examples": [
+                    "2019-04-17",
+                    "2018-07-04",
+                    "2021-03-11",
+                    "2018-04-06",
+                    "2017-12-02",
+                    "2018-02-04",
+                    "2022-08-02",
+                    "2016-04-25",
+                    "2022-03-12",
+                    "2018-06-08",
+                    "2020-10-08",
+                    "2022-10-15"
+                ]
+            },
+            "DatumZavrsetka": {
+                "title": "The DatumZavrsetka Schema",
+                "description": "Ending day of tournament.",
+                "type": "string",
+                "examples": [
+                    "2019-04-21",
+                    "2018-07-12",
+                    "2021-03-15",
+                    "2018-04-12",
+                    "2017-12-10",
+                    "2018-02-06",
+                    "2022-08-08",
+                    "2016-05-04",
+                    "0202-03-16",
+                    "2018-06-15",
+                    "2020-10-12",
+                    "2022-10-30"
+                ]
+            },
+            "VerzijaIgre": {
+                "title": "The VerzijaIgre Schema",
+                "description": "Current version of the game.",
+                "type": "string",
+                "examples": [
+                    "7.22a",
+                    "7.31c",
+                    "7.32dc",
+                    "6.89d",
+                    "7.33d",
+                    "6.62c",
+                    "7.15b"
+                ]
+            },
+            "BrojGledatelja": {
+                "title": "The BrojGledatelja Schema",
+                "description": "Number of live viewers that watched the tournament.",
+                "type": "integer",
+                "examples": [
+                    63000,
+                    88000,
+                    55000,
+                    65000,
+                    760000,
+                    80000,
+                    113000,
+                    120000,
+                    580000,
+                    70000,
+                    45000,
+                    1000000
+                ]
+            },
+            "sponzori": {
+                "title": "The sponzori Schema",
+                "description": "List of sponsors of the tournament.",
+                "type": "array",
+                "items": {
+                    "title": "A Schema",
+                    "description": "Name and contribution of the sponsor.",
+                    "type": "object",
+                    "required": [
+                        "Naziv",
+                        "Iznos"
+                    ],
+                    "properties": {
+                        "Naziv": {
+                            "title": "The Naziv Schema",
+                            "description": "Name of the company.",
+                            "type": "string",
+                            "examples": [
+                                "V2",
+                                "Gen Empower",
+                                "Zed Corporation",
+                                "Blue Corporation",
+                                "Red Organization"
+                            ]
+                        },
+                        "Iznos": {
+                            "title": "The Iznos Schema",
+                            "description": "Contributed funds in USD.",
+                            "type": "integer",
+                            "examples": [
+                                75000,
+                                150000,
+                                50000,
+                                100000,
+                                200000
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    },
+                    {
+                        "Naziv": "Zed Corporation",
+                        "Iznos": 50000
+                    },
+                    {
+                        "Naziv": "Zed Corporation",
+                        "Iznos": 50000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Zed Corporation",
+                        "Iznos": 50000
+                    },
+                    {
+                        "Naziv": "Blue Corporation",
+                        "Iznos": 100000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    },
+                    {
+                        "Naziv": "Red Organization",
+                        "Iznos": 200000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    },
+                    {
+                        "Naziv": "Zed Corporation",
+                        "Iznos": 50000
+                    },
+                    {
+                        "Naziv": "Blue Corporation",
+                        "Iznos": 100000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    }]
+                },
+                "examples": [
+                    [{
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    }],
+                    [{
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    },
+                    {
+                        "Naziv": "Zed Corporation",
+                        "Iznos": 50000
+                    }],
+                    [{
+                        "Naziv": "Zed Corporation",
+                        "Iznos": 50000
+                    }],
+                    [{
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    }],
+                    [{
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    }],
+                    [{
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    }],
+                    [{
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Zed Corporation",
+                        "Iznos": 50000
+                    }],
+                    [{
+                        "Naziv": "Blue Corporation",
+                        "Iznos": 100000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    }],
+                    [{
+                        "Naziv": "Red Organization",
+                        "Iznos": 200000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    }],
+                    [{
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    },
+                    {
+                        "Naziv": "Gen Empower",
+                        "Iznos": 150000
+                    }],
+                    [{
+                        "Naziv": "Zed Corporation",
+                        "Iznos": 50000
+                    }],
+                    [{
+                        "Naziv": "Blue Corporation",
+                        "Iznos": 100000
+                    },
+                    {
+                        "Naziv": "V2",
+                        "Iznos": 75000
+                    }]
+                ]
+            }
+        },
+        "examples": [{
+            "Naziv": "Autumn Battle",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower"
+            ],
+            "Tip": "Online",
+            "Lokacija": "Internet",
+            "Format": "Double elimination",
+            "NagradniFond": 225000,
+            "BrojTimova": 12,
+            "DatumPocetka": "2019-04-17",
+            "DatumZavrsetka": "2019-04-21",
+            "VerzijaIgre": "7.22a",
+            "BrojGledatelja": 63000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Fourth Quaterly",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower",
+                "Zed Corporation"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Vancouver",
+            "Format": "Round-robin",
+            "NagradniFond": 275000,
+            "BrojTimova": 16,
+            "DatumPocetka": "2018-07-04",
+            "DatumZavrsetka": "2018-07-12",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 88000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            },
+            {
+                "Naziv": "Zed Corporation",
+                "Iznos": 50000
+            }]
+        },
+        {
+            "Naziv": "Kansas Major",
+            "Serija": "Major",
+            "Organizator": [
+                "AI Inc."
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Kansas",
+            "Format": "Single elimination",
+            "NagradniFond": 65000,
+            "BrojTimova": 12,
+            "DatumPocetka": "2021-03-11",
+            "DatumZavrsetka": "2021-03-15",
+            "VerzijaIgre": "7.32dc",
+            "BrojGledatelja": 55000,
+            "sponzori": [{
+                "Naziv": "Zed Corporation",
+                "Iznos": 50000
+            }]
+        },
+        {
+            "Naziv": "Second Quaterly",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Seattle",
+            "Format": "Round-robin",
+            "NagradniFond": 225000,
+            "BrojTimova": 10,
+            "DatumPocetka": "2018-04-06",
+            "DatumZavrsetka": "2018-04-12",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 65000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Stockholm Minor",
+            "Serija": "Minor",
+            "Organizator": [
+                "V2"
+            ],
+            "Tip": "Online",
+            "Lokacija": "Internet",
+            "Format": "Round-robin",
+            "NagradniFond": 75000,
+            "BrojTimova": 8,
+            "DatumPocetka": "2017-12-02",
+            "DatumZavrsetka": "2017-12-10",
+            "VerzijaIgre": "6.89d",
+            "BrojGledatelja": 760000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            }]
+        },
+        {
+            "Naziv": "First Quaterly",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "London",
+            "Format": "Round-robin",
+            "NagradniFond": 225000,
+            "BrojTimova": 8,
+            "DatumPocetka": "2018-02-04",
+            "DatumZavrsetka": "2018-02-06",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 80000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Paris Justice",
+            "Serija": "Point System",
+            "Organizator": [
+                "Zed Corporation",
+                "V2"
+            ],
+            "Tip": "Online",
+            "Lokacija": "Paris",
+            "Format": "Double-elimination",
+            "NagradniFond": 125000,
+            "BrojTimova": 12,
+            "DatumPocetka": "2022-08-02",
+            "DatumZavrsetka": "2022-08-08",
+            "VerzijaIgre": "7.33d",
+            "BrojGledatelja": 113000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Zed Corporation",
+                "Iznos": 50000
+            }]
+        },
+        {
+            "Naziv": "Beijing Major",
+            "Serija": "Major",
+            "Organizator": [
+                "Blue Corporation",
+                "Gen Empower"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Beijing",
+            "Format": "Double-elimination",
+            "NagradniFond": 250000,
+            "BrojTimova": 16,
+            "DatumPocetka": "2016-04-25",
+            "DatumZavrsetka": "2016-05-04",
+            "VerzijaIgre": "6.62c",
+            "BrojGledatelja": 120000,
+            "sponzori": [{
+                "Naziv": "Blue Corporation",
+                "Iznos": 100000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Zagreb Minor",
+            "Serija": "Minor",
+            "Organizator": [
+                "Red Corporation",
+                "V2"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Beijing",
+            "Format": "Double-elimination",
+            "NagradniFond": 275000,
+            "BrojTimova": 8,
+            "DatumPocetka": "2022-03-12",
+            "DatumZavrsetka": "0202-03-16",
+            "VerzijaIgre": "7.32dc",
+            "BrojGledatelja": 580000,
+            "sponzori": [{
+                "Naziv": "Red Organization",
+                "Iznos": 200000
+            },
+            {
+                "Naziv": "V2",
+                "Iznos": 75000
+            }]
+        },
+        {
+            "Naziv": "Third Quaterly",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Tokyo",
+            "Format": "Round-robin",
+            "NagradniFond": 225000,
+            "BrojTimova": 12,
+            "DatumPocetka": "2018-06-08",
+            "DatumZavrsetka": "2018-06-15",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 70000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Majorly Barcelona 2020",
+            "Serija": "Barcelona Series",
+            "Organizator": [
+                "Zed Corporation"
+            ],
+            "Tip": "Online",
+            "Lokacija": "Internet",
+            "Format": "Single elimination",
+            "NagradniFond": 50000,
+            "BrojTimova": 10,
+            "DatumPocetka": "2020-10-08",
+            "DatumZavrsetka": "2020-10-12",
+            "VerzijaIgre": "7.15b",
+            "BrojGledatelja": 45000,
+            "sponzori": [{
+                "Naziv": "Zed Corporation",
+                "Iznos": 50000
+            }]
+        },
+        {
+            "Naziv": "The World Championship 2022",
+            "Serija": "The World Championship",
+            "Organizator": [
+                "Blue Corporation",
+                "V2"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Singapore",
+            "Format": "Round-robin",
+            "NagradniFond": 17000000,
+            "BrojTimova": 20,
+            "DatumPocetka": "2022-10-15",
+            "DatumZavrsetka": "2022-10-30",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 1000000,
+            "sponzori": [{
+                "Naziv": "Blue Corporation",
+                "Iznos": 100000
+            },
+            {
+                "Naziv": "V2",
+                "Iznos": 75000
+            }]
+        }]
+    },
+    "examples": [
+        [{
+            "Naziv": "Autumn Battle",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower"
+            ],
+            "Tip": "Online",
+            "Lokacija": "Internet",
+            "Format": "Double elimination",
+            "NagradniFond": 225000,
+            "BrojTimova": 12,
+            "DatumPocetka": "2019-04-17",
+            "DatumZavrsetka": "2019-04-21",
+            "VerzijaIgre": "7.22a",
+            "BrojGledatelja": 63000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Fourth Quaterly",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower",
+                "Zed Corporation"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Vancouver",
+            "Format": "Round-robin",
+            "NagradniFond": 275000,
+            "BrojTimova": 16,
+            "DatumPocetka": "2018-07-04",
+            "DatumZavrsetka": "2018-07-12",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 88000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            },
+            {
+                "Naziv": "Zed Corporation",
+                "Iznos": 50000
+            }]
+        },
+        {
+            "Naziv": "Kansas Major",
+            "Serija": "Major",
+            "Organizator": [
+                "AI Inc."
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Kansas",
+            "Format": "Single elimination",
+            "NagradniFond": 65000,
+            "BrojTimova": 12,
+            "DatumPocetka": "2021-03-11",
+            "DatumZavrsetka": "2021-03-15",
+            "VerzijaIgre": "7.32dc",
+            "BrojGledatelja": 55000,
+            "sponzori": [{
+                "Naziv": "Zed Corporation",
+                "Iznos": 50000
+            }]
+        },
+        {
+            "Naziv": "Second Quaterly",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Seattle",
+            "Format": "Round-robin",
+            "NagradniFond": 225000,
+            "BrojTimova": 10,
+            "DatumPocetka": "2018-04-06",
+            "DatumZavrsetka": "2018-04-12",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 65000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Stockholm Minor",
+            "Serija": "Minor",
+            "Organizator": [
+                "V2"
+            ],
+            "Tip": "Online",
+            "Lokacija": "Internet",
+            "Format": "Round-robin",
+            "NagradniFond": 75000,
+            "BrojTimova": 8,
+            "DatumPocetka": "2017-12-02",
+            "DatumZavrsetka": "2017-12-10",
+            "VerzijaIgre": "6.89d",
+            "BrojGledatelja": 760000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            }]
+        },
+        {
+            "Naziv": "First Quaterly",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "London",
+            "Format": "Round-robin",
+            "NagradniFond": 225000,
+            "BrojTimova": 8,
+            "DatumPocetka": "2018-02-04",
+            "DatumZavrsetka": "2018-02-06",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 80000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Paris Justice",
+            "Serija": "Point System",
+            "Organizator": [
+                "Zed Corporation",
+                "V2"
+            ],
+            "Tip": "Online",
+            "Lokacija": "Paris",
+            "Format": "Double-elimination",
+            "NagradniFond": 125000,
+            "BrojTimova": 12,
+            "DatumPocetka": "2022-08-02",
+            "DatumZavrsetka": "2022-08-08",
+            "VerzijaIgre": "7.33d",
+            "BrojGledatelja": 113000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Zed Corporation",
+                "Iznos": 50000
+            }]
+        },
+        {
+            "Naziv": "Beijing Major",
+            "Serija": "Major",
+            "Organizator": [
+                "Blue Corporation",
+                "Gen Empower"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Beijing",
+            "Format": "Double-elimination",
+            "NagradniFond": 250000,
+            "BrojTimova": 16,
+            "DatumPocetka": "2016-04-25",
+            "DatumZavrsetka": "2016-05-04",
+            "VerzijaIgre": "6.62c",
+            "BrojGledatelja": 120000,
+            "sponzori": [{
+                "Naziv": "Blue Corporation",
+                "Iznos": 100000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Zagreb Minor",
+            "Serija": "Minor",
+            "Organizator": [
+                "Red Corporation",
+                "V2"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Beijing",
+            "Format": "Double-elimination",
+            "NagradniFond": 275000,
+            "BrojTimova": 8,
+            "DatumPocetka": "2022-03-12",
+            "DatumZavrsetka": "0202-03-16",
+            "VerzijaIgre": "7.32dc",
+            "BrojGledatelja": 580000,
+            "sponzori": [{
+                "Naziv": "Red Organization",
+                "Iznos": 200000
+            },
+            {
+                "Naziv": "V2",
+                "Iznos": 75000
+            }]
+        },
+        {
+            "Naziv": "Third Quaterly",
+            "Serija": "Point System",
+            "Organizator": [
+                "V2",
+                "Gen Empower"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Tokyo",
+            "Format": "Round-robin",
+            "NagradniFond": 225000,
+            "BrojTimova": 12,
+            "DatumPocetka": "2018-06-08",
+            "DatumZavrsetka": "2018-06-15",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 70000,
+            "sponzori": [{
+                "Naziv": "V2",
+                "Iznos": 75000
+            },
+            {
+                "Naziv": "Gen Empower",
+                "Iznos": 150000
+            }]
+        },
+        {
+            "Naziv": "Majorly Barcelona 2020",
+            "Serija": "Barcelona Series",
+            "Organizator": [
+                "Zed Corporation"
+            ],
+            "Tip": "Online",
+            "Lokacija": "Internet",
+            "Format": "Single elimination",
+            "NagradniFond": 50000,
+            "BrojTimova": 10,
+            "DatumPocetka": "2020-10-08",
+            "DatumZavrsetka": "2020-10-12",
+            "VerzijaIgre": "7.15b",
+            "BrojGledatelja": 45000,
+            "sponzori": [{
+                "Naziv": "Zed Corporation",
+                "Iznos": 50000
+            }]
+        },
+        {
+            "Naziv": "The World Championship 2022",
+            "Serija": "The World Championship",
+            "Organizator": [
+                "Blue Corporation",
+                "V2"
+            ],
+            "Tip": "Offline",
+            "Lokacija": "Singapore",
+            "Format": "Round-robin",
+            "NagradniFond": 17000000,
+            "BrojTimova": 20,
+            "DatumPocetka": "2022-10-15",
+            "DatumZavrsetka": "2022-10-30",
+            "VerzijaIgre": "7.31c",
+            "BrojGledatelja": 1000000,
+            "sponzori": [{
+                "Naziv": "Blue Corporation",
+                "Iznos": 100000
+            },
+            {
+                "Naziv": "V2",
+                "Iznos": 75000
+            }]
+        }]
+    ]
+}

@@ -1,13 +1,13 @@
-Naziv,sponzori
-Autumn Battle,V2-75000 Gen Empower-150000
-Fourth Quaterly,V2-75000 Gen Empower-150000 Zed Corporation-50000
-Kansas Major,Zed Corporation-50000
-Second Quaterly,V2-75000 Gen Empower-150000
-Stockholm Minor,V2-75000
-First Quaterly,V2-75000 Gen Empower-150000
-Paris Justice,V2-75000 Zed Corporation-50000
-Beijing Major,Blue Corporation-100000 Gen Empower-150000
-Zagreb Minor,Red Organization-200000 V2-75000
-Third Quaterly,V2-75000 Gen Empower-150000
-Majorly Barcelona 2020,Zed Corporation-50000
-The World Championship 2022,Blue Corporation-100000 V2-75000
+Naziv,Serija,Organizator,Tip,Lokacija,Format,NagradniFond,BrojTimova,DatumPocetka,DatumZavrsetka,VerzijaIgre,BrojGledatelja,sponzori
+Autumn Battle,Point System,"{V2,""Gen Empower""}",Online,Internet,Double elimination,225000,12,2019-04-17,2019-04-21,7.22a,63000,V2-75000 Gen Empower-150000
+Fourth Quaterly,Point System,"{V2,""Gen Empower"",""Zed Corporation""}",Offline,Vancouver,Round-robin,275000,16,2018-07-04,2018-07-12,7.31c,88000,V2-75000 Gen Empower-150000 Zed Corporation-50000
+Kansas Major,Major,"{""AI Inc.""}",Offline,Kansas,Single elimination,65000,12,2021-03-11,2021-03-15,7.32dc,55000,Zed Corporation-50000
+Second Quaterly,Point System,"{V2,""Gen Empower""}",Offline,Seattle,Round-robin,225000,10,2018-04-06,2018-04-12,7.31c,65000,V2-75000 Gen Empower-150000
+Stockholm Minor,Minor,{V2},Online,Internet,Round-robin,75000,8,2017-12-02,2017-12-10,6.89d,760000,V2-75000
+First Quaterly,Point System,"{V2,""Gen Empower""}",Offline,London,Round-robin,225000,8,2018-02-04,2018-02-06,7.31c,80000,V2-75000 Gen Empower-150000
+Paris Justice,Point System,"{""Zed Corporation"",V2}",Online,Paris,Double-elimination,125000,12,2022-08-02,2022-08-08,7.33d,113000,V2-75000 Zed Corporation-50000
+Beijing Major,Major,"{""Blue Corporation"",""Gen Empower""}",Offline,Beijing,Double-elimination,250000,16,2016-04-25,2016-05-04,6.62c,120000,Blue Corporation-100000 Gen Empower-150000
+Zagreb Minor,Minor,"{""Red Corporation"",V2}",Offline,Beijing,Double-elimination,275000,8,2022-03-12,0202-03-16,7.32dc,580000,Red Organization-200000 V2-75000
+Third Quaterly,Point System,"{V2,""Gen Empower""}",Offline,Tokyo,Round-robin,225000,12,2018-06-08,2018-06-15,7.31c,70000,V2-75000 Gen Empower-150000
+Majorly Barcelona 2020,Barcelona Series,"{""Zed Corporation""}",Online,Internet,Single elimination,50000,10,2020-10-08,2020-10-12,7.15b,45000,Zed Corporation-50000
+The World Championship 2022,The World Championship,"{""Blue Corporation"",V2}",Offline,Singapore,Round-robin,17000000,20,2022-10-15,2022-10-30,7.31c,1000000,Blue Corporation-100000 V2-75000
