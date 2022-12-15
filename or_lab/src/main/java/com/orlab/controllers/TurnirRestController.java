@@ -2,18 +2,16 @@ package com.orlab.controllers;
 
 import com.orlab.model.Sponzori;
 import com.orlab.model.Turniri;
-import com.orlab.repository.TurniriRepository;
 import com.orlab.services.TurnirException;
-import com.orlab.services.TurnirNotFoundException;
 import com.orlab.services.TurnirService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RestController
 public class TurnirRestController {
@@ -31,7 +29,7 @@ public class TurnirRestController {
     }
 
     @GetMapping("/api/v1/turniri")
-    public ResponseEntity<List<Turniri>> getTurniri(Model model){
+    public ResponseEntity<List<Turniri>> getTurniri(){
         return new ResponseEntity<>(turnirService.getAllTurniri(), HttpStatus.OK);
     }
 
@@ -85,15 +83,24 @@ public class TurnirRestController {
 
     @PostMapping("/api/v1/sponzori")
     public ResponseEntity<?> newSponzori(@RequestBody Sponzori sponzor) throws TurnirException {
-
+        if(sponzor.getNaziv() == null || sponzor.getIznos()==null){
+            return new ResponseEntity<>("Sponzor must have Naziv and Iznos", HttpStatus.BAD_REQUEST);
+        }
         Sponzori sponzori = turnirService.createOrUpdateSponzor(sponzor);
 
         return new ResponseEntity<Sponzori>(sponzori, HttpStatus.CREATED);
     }
 
     @PutMapping("/api/v1/sponzori/{IdSponzor}")
-    public Sponzori refreshTurnir(@RequestBody Sponzori sponzor, @PathVariable Integer IdSponzor){
-        return turnirService.getSponzorById(IdSponzor)
+    public ResponseEntity<?> refreshTurnir(@RequestBody Sponzori sponzor, @PathVariable Integer IdSponzor){
+
+        if(turnirService.getSponzorById(IdSponzor).isEmpty()){
+            return new ResponseEntity<>("Sponzor with id " + IdSponzor+ " does not exist.", HttpStatus.NOT_FOUND);
+        }
+        if(sponzor.getNaziv() == null || sponzor.getIznos()==null){
+            return new ResponseEntity<>("Sponzor must have Naziv and Iznos", HttpStatus.BAD_REQUEST);
+        }
+        Sponzori s =  turnirService.getSponzorById(IdSponzor)
                 .map(spon ->{
                     spon.setNaziv(sponzor.getNaziv());
                     spon.setIznos(sponzor.getIznos());
@@ -111,10 +118,10 @@ public class TurnirRestController {
                     } catch (TurnirException e) {
                         e.printStackTrace();
                     }
-                    return null;
+                    return sponzor;
                 });
-        //return ResponseEntity.unprocessableEntity().build();
 
+        return new ResponseEntity<Sponzori>(s, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/api/v1/sponzori/{IdSponzor}")
