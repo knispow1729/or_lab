@@ -4,22 +4,25 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
-@Table(name = "turniri", schema = "public")
+@Table(name = "turniri")
 public class Turniri {
 
     @Id
-    @Column(name = "Naziv", nullable = false)
-    private String Naziv;
+    @Column(name = "\"idTurnir\"", nullable = false)
+    private Integer idTurnir;
 
-    @Column(name = "Serija", nullable = false)
+    @Column(name = "\"Naziv\"", nullable = false)
+    @Type(type = "org.hibernate.type.TextType")
+    private String naziv;
+
+    @Column(name = "\"Serija\"", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
     private String serija;
+
+    @Column(name = "\"Organizator\"", columnDefinition = "text[] not null")
+    private String organizator;
 
     @Column(name = "\"Tip\"", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
@@ -45,9 +48,6 @@ public class Turniri {
     @Column(name = "\"DatumZavrsetka\"", nullable = false)
     private LocalDate datumZavrsetka;
 
-    @Column(name = "\"IdTurnir\"", nullable = false)
-    private Integer idTurnir;
-
     @Column(name = "\"VerzijaIgre\"", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
     private String verzijaIgre;
@@ -55,24 +55,46 @@ public class Turniri {
     @Column(name = "\"BrojGledatelja\"", nullable = false)
     private Integer brojGledatelja;
 
-    @Column(name= "Organizator")
-    private String organizator;
+//    @ManyToMany(cascade = { CascadeType.ALL })
+//    @JoinTable(name = "turnir_sponzor",
+//            joinColumns = @JoinColumn(name = "IdTurnir"),
+//            inverseJoinColumns = @JoinColumn(name = "IdSponzor"))
+//    private Set<Sponzori> sponzoris = new LinkedHashSet<>();
 
 
-    public String getOrganizator() {
-        return organizator;
+    @Override
+    public String toString() {
+        return "Turniri{" +
+                "idTurnir=" + idTurnir +
+                ", naziv='" + naziv + '\'' +
+                ", serija='" + serija + '\'' +
+                ", organizator='" + organizator + '\'' +
+                ", tip='" + tip + '\'' +
+                ", lokacija='" + lokacija + '\'' +
+                ", format='" + format + '\'' +
+                ", nagradniFond=" + nagradniFond +
+                ", brojTimova=" + brojTimova +
+                ", datumPocetka=" + datumPocetka +
+                ", datumZavrsetka=" + datumZavrsetka +
+                ", verzijaIgre='" + verzijaIgre + '\'' +
+                ", brojGledatelja=" + brojGledatelja +
+                '}';
     }
 
-    public void setOrganizator(String organizator) {
-        this.organizator = organizator;
+    public Integer getIdTurnir() {
+        return idTurnir;
+    }
+
+    public void setIdTurnir(Integer idTurnir) {
+        this.idTurnir = idTurnir;
     }
 
     public String getNaziv() {
-        return Naziv;
+        return naziv;
     }
 
     public void setNaziv(String naziv) {
-        this.Naziv = naziv;
+        this.naziv = naziv;
     }
 
     public String getSerija() {
@@ -81,6 +103,14 @@ public class Turniri {
 
     public void setSerija(String serija) {
         this.serija = serija;
+    }
+
+    public String getOrganizator() {
+        return organizator;
+    }
+
+    public void setOrganizator(String organizator) {
+        this.organizator = organizator;
     }
 
     public String getTip() {
@@ -139,14 +169,6 @@ public class Turniri {
         this.datumZavrsetka = datumZavrsetka;
     }
 
-    public Integer getIdTurnir() {
-        return idTurnir;
-    }
-
-    public void setIdTurnir(Integer idTurnir) {
-        this.idTurnir = idTurnir;
-    }
-
     public String getVerzijaIgre() {
         return verzijaIgre;
     }
@@ -163,5 +185,12 @@ public class Turniri {
         this.brojGledatelja = brojGledatelja;
     }
 
+//    public Set<Sponzori> getSponzoris() {
+//        return sponzoris;
+//    }
+//
+//    public void setSponzoris(Set<Sponzori> sponzoris) {
+//        this.sponzoris = sponzoris;
+//    }
 
 }

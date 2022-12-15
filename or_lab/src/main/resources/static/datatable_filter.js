@@ -27,6 +27,7 @@ $(document).ready(function () {
         "sAjaxDataProp": "",
         "order": [[ 0, "asc" ]],
         "aoColumns": [
+            { "mData": "idTurnir" },
             { "mData": "naziv"},
             { "mData": "serija" },
             { "mData": "organizator" },
@@ -38,8 +39,8 @@ $(document).ready(function () {
             { "mData": "nagradniFond"},
             { "mData": "brojTimova" },
             { "mData": "brojGledatelja" },
-            { "mData": "verzijaIgre" },
-            { "mData": "idTurnir" }
+            { "mData": "verzijaIgre" }
+
         ],
         initComplete: function () {
             // Apply the search

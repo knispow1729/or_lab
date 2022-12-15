@@ -8,34 +8,39 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "sponzori", schema = "public")
+@Table(name = "sponzori")
 public class Sponzori {
+
     @Id
     @Column(name = "\"IdSponzor\"", nullable = false)
-    private Integer id;
+    private Integer idSponzor;
 
     @Column(name = "\"Naziv\"", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
-    private String Naziv;
+    private String naziv;
 
     @Column(name = "\"Iznos\"", nullable = false)
     private Integer iznos;
 
+//    @ManyToMany(mappedBy = "sponzoris")
+//    @JsonIgnore
+//    private Set<Turniri> turniris = new LinkedHashSet<>();
 
-    public Integer getId() {
-        return id;
+
+    public Integer getIdSponzor() {
+        return idSponzor;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdSponzor(Integer idSponzor) {
+        this.idSponzor = idSponzor;
     }
 
     public String getNaziv() {
-        return Naziv;
+        return naziv;
     }
 
     public void setNaziv(String naziv) {
-        this.Naziv = naziv;
+        this.naziv = naziv;
     }
 
     public Integer getIznos() {
@@ -46,5 +51,12 @@ public class Sponzori {
         this.iznos = iznos;
     }
 
+//    public Set<Turniri> getTurniris() {
+//        return turniris;
+//    }
+//
+//    public void setTurniris(Set<Turniri> turniris) {
+//        this.turniris = turniris;
+//    }
 
 }

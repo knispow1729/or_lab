@@ -1,14 +1,19 @@
 package com.orlab.controllers;
 
+import com.orlab.model.Sponzori;
 import com.orlab.model.Turniri;
 import com.orlab.repository.TurniriRepository;
+import com.orlab.services.TurnirException;
+import com.orlab.services.TurnirNotFoundException;
 import com.orlab.services.TurnirService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class TurnirRestController {
@@ -17,7 +22,112 @@ public class TurnirRestController {
     TurnirService turnirService;
 
     @GetMapping("/turniri")
-    public List<Turniri> getTurniri(Model model){
+    public List<Turniri> getTurnirs(){
         return turnirService.getAllTurniri();
     }
+    @GetMapping("/sponzori")
+    public List<Sponzori> getSponzors(){
+        return turnirService.getAllSponzori();
+    }
+
+    @GetMapping("/api/v1/turniri")
+    public ResponseEntity<List<Turniri>> getTurniri(Model model){
+        return new ResponseEntity<>(turnirService.getAllTurniri(), HttpStatus.OK);
+    }
+
+    @GetMapping("/api/v1/turniri/{IdTurnir}")
+    public ResponseEntity<?> getOneTurnir(@PathVariable Integer IdTurnir){
+
+        Optional<Turniri> turnir= turnirService.getTurnirById(IdTurnir);
+        if (turnir.isEmpty()){
+            return new ResponseEntity<>("Could not find turnir with id "+IdTurnir, HttpStatus.NOT_FOUND);
+        }
+        else{
+            return new ResponseEntity<>(turnir, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/api/v1/tip/{tip}")
+    public ResponseEntity<?> getByTip(@PathVariable String tip){
+
+        Optional<List<Turniri>> turnir= turnirService.getTurnirByTip(tip);
+        if (turnir.isEmpty() || turnir.get().isEmpty()){
+            return new ResponseEntity<>("Could not find turnir with tip "+tip, HttpStatus.NOT_FOUND);
+        }
+        else{
+            return new ResponseEntity<>(turnir, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/api/v1/serija/{serija}")
+    public ResponseEntity<?> getBySerija(@PathVariable String serija){
+
+        Optional<List<Turniri>> turnir= turnirService.getTurnirBySerija(serija);
+        if (turnir.isEmpty() || turnir.get().isEmpty()){
+            return new ResponseEntity<>("Could not find serija with name "+serija, HttpStatus.NOT_FOUND);
+        }
+        else{
+            return new ResponseEntity<>(turnir, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/api/v1/lokacija/{lokacija}")
+     public ResponseEntity<?> getByLokacija(@PathVariable String lokacija){
+        Optional<List<Turniri>> turnir= turnirService.getTurnirByLokacija(lokacija);
+
+        if (turnir.isEmpty() || turnir.get().isEmpty()){
+            return new ResponseEntity<>("Could not find lokacija with name "+lokacija, HttpStatus.NOT_FOUND);
+        }
+        else{
+            return new ResponseEntity<>(turnir, HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/api/v1/sponzori")
+    public ResponseEntity<?> newSponzori(@RequestBody Sponzori sponzor) throws TurnirException {
+
+        Sponzori sponzori = turnirService.createOrUpdateSponzor(sponzor);
+
+        return new ResponseEntity<Sponzori>(sponzori, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/api/v1/sponzori/{IdSponzor}")
+    public Sponzori refreshTurnir(@RequestBody Sponzori sponzor, @PathVariable Integer IdSponzor){
+        return turnirService.getSponzorById(IdSponzor)
+                .map(spon ->{
+                    spon.setNaziv(sponzor.getNaziv());
+                    spon.setIznos(sponzor.getIznos());
+                    try {
+                        return turnirService.createOrUpdateSponzor(spon);
+                    } catch (TurnirException e) {
+                        e.printStackTrace();
+                    }
+                    return spon;
+                })
+                .orElseGet(()->{
+                    sponzor.setIdSponzor(IdSponzor);
+                    try {
+                        return turnirService.createOrUpdateSponzor(sponzor);
+                    } catch (TurnirException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                });
+        //return ResponseEntity.unprocessableEntity().build();
+
+    }
+
+    @DeleteMapping("/api/v1/sponzori/{IdSponzor}")
+    public ResponseEntity<?> deleteSponzor(@PathVariable Integer IdSponzor){
+        Optional<Sponzori> sponzor = turnirService.getSponzorById(IdSponzor);
+        if(sponzor.isEmpty()) {
+            return new ResponseEntity<>("Sponzor with id " + IdSponzor + " does not exist.", HttpStatus.NOT_FOUND);
+        }
+        else{
+            turnirService.deleteSponzorFromRepo(sponzor.get());
+            return new ResponseEntity<>("Deleted sponzor with id "+IdSponzor, HttpStatus.OK);
+        }
+
+    }
+
 }
