@@ -1,0 +1,476 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition for Dota2Tournaments",
+    "version": "v1.3"
+  },
+  "paths": {
+    "/api/v1/sponzori/{IdSponzor}": {
+      "put": {
+        "summary":"Refresh one sponzor",
+        "description":"Refreshes one sponzor with IdSponzor",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "refreshTurnir",
+        "parameters": [
+          {
+            "name": "IdSponzor",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sponzori"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "BAD REQUEST",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary":"Delete one sponzor",
+        "description":"Deletes one sponzor with IdSponzor",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "deleteSponzor",
+        "parameters": [
+          {
+            "name": "IdSponzor",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sponzori": {
+      "post": {
+        "summary":"Enter one new sponzor",
+        "description":"Stores one sponzor into database",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "newSponzori",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sponzori"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "BAD REQUEST",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/turniri": {
+      "get": {
+        "summary":"Gets all tournaments json for testing",
+        "description":"Returns all tournaments from the database",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "getTurnirs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Turniri"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sponzori": {
+      "get": {
+        "summary":"Gets all sponzors json for testing ",
+        "description":"Returns all sponzors from the database",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "getSponzors",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Sponzori"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/turniri": {
+      "get": {
+        "summary":"Gets all tournaments from database",
+        "description":"Returns all tournaments from the database",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "getTurniri",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/turniri/{IdTurnir}": {
+      "get": {
+        "summary":"Get one tournament from database",
+        "description":"Returns tournament from the database with given id",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "getOneTurnir",
+        "parameters": [
+          {
+            "name": "IdTurnir",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/tip/{tip}": {
+      "get": {
+        "summary":"Gets tournament from database",
+        "description":"Returns all tournaments from the database wtih the same type",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "getByTip",
+        "parameters": [
+          {
+            "name": "tip",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/serija/{serija}": {
+      "get": {
+        "summary":"Get tournaments from database",
+        "description":"Returns all tournaments from the database with the same serija",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "getBySerija",
+        "parameters": [
+          {
+            "name": "serija",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/lokacija/{lokacija}": {
+      "get": {
+        "summary":"Get tournaments from database",
+        "description":"Returns all tournaments from the database with the same lokacija",
+        "tags": [
+          "turnir-rest-controller"
+        ],
+        "operationId": "getByLokacija",
+        "parameters": [
+          {
+            "name": "lokacija",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NOT FOUND",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Sponzori": {
+        "type": "object",
+        "properties": {
+          "idSponzor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "naziv": {
+            "type": "string"
+          },
+          "iznos": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Turniri": {
+        "type": "object",
+        "properties": {
+          "idTurnir": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "naziv": {
+            "type": "string"
+          },
+          "serija": {
+            "type": "string"
+          },
+          "organizator": {
+            "type": "string"
+          },
+          "tip": {
+            "type": "string"
+          },
+          "lokacija": {
+            "type": "string"
+          },
+          "format": {
+            "type": "string"
+          },
+          "nagradniFond": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "brojTimova": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "datumPocetka": {
+            "type": "string",
+            "format": "date"
+          },
+          "datumZavrsetka": {
+            "type": "string",
+            "format": "date"
+          },
+          "verzijaIgre": {
+            "type": "string"
+          },
+          "brojGledatelja": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}
