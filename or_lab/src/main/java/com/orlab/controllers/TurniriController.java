@@ -21,4 +21,14 @@ public class TurniriController {
     public String getInput(){
         return null;
     }
+
+    @GetMapping("/userpage")
+    public String userPage(){
+        return "userpage";
+    }
+
+    @GetMapping("/userprofile")
+    public String userProfile(){
+        return "userprofile";
+    }
 }
