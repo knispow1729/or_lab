@@ -27,7 +27,7 @@ $(document).ready(function () {
         "sAjaxDataProp": "",
         "order": [[ 0, "asc" ]],
         "aoColumns": [
-            { "mData": "idturnir" },
+            { "mData": "idTurnir" },
             { "mData": "naziv"},
             { "mData": "serija" },
             { "mData": "organizator" },
