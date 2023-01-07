@@ -45,7 +45,7 @@ public class AuthConfig {
                 .disable()
                 .authorizeRequests()
                 .antMatchers( "/callback", "/login", "/","api/v1").permitAll()
-                .antMatchers("/filter","/userpage/user","/userpage/refresh").authenticated()
+                .antMatchers("/filter","/userpage", "/userpage/user", "/userpage/refresh").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")

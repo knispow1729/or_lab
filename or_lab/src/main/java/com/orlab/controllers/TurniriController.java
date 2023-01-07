@@ -22,6 +22,11 @@ public class TurniriController {
         return "datatable";
     }
 
+    @GetMapping("/userpage")
+    public String user(){
+        return "userpage";
+    }
+
     @PostMapping("/filter")
     public String getInput(){
         return null;
@@ -46,6 +51,6 @@ public class TurniriController {
 
     @GetMapping("/userpage/refresh")
     public String refreshUser(){
-        return "refreshuser";
+        return "datatable";
     }
 }

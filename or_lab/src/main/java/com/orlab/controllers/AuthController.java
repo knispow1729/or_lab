@@ -43,6 +43,6 @@ public class AuthController {
         authToken2.setAuthenticated(true);
 
         SecurityContextHolder.getContext().setAuthentication(authToken2);
-        response.sendRedirect(config.getContextPath(request) + "/filter");
+        response.sendRedirect(config.getContextPath(request) + "/userpage");
     }
 }
