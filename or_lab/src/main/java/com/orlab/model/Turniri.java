@@ -1,5 +1,8 @@
 package com.orlab.model;
 
+import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldId;
+import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldProperty;
+import ioinformarics.oss.jackson.module.jsonld.annotation.JsonldType;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -7,14 +10,17 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "turniri")
+@JsonldType("https://schema.org/EventSeries")
 public class Turniri {
 
     @Id
     @Column(name = "\"idTurnir\"", nullable = false)
+    @JsonldId
     private Integer idTurnir;
 
     @Column(name = "\"Naziv\"", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
+    @JsonldProperty("https://schema.org/name")
     private String naziv;
 
     @Column(name = "\"Serija\"", nullable = false)
@@ -30,6 +36,7 @@ public class Turniri {
 
     @Column(name = "\"Lokacija\"", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
+    @JsonldProperty("https://schema.org/location")
     private String lokacija;
 
     @Column(name = "\"Format\"", nullable = false)
@@ -42,9 +49,11 @@ public class Turniri {
     @Column(name = "\"BrojTimova\"", nullable = false)
     private Integer brojTimova;
 
+    @JsonldProperty("https://schema.org/startDate")
     @Column(name = "\"DatumPocetka\"", nullable = false)
     private LocalDate datumPocetka;
 
+    @JsonldProperty("https://schema.org/endDate")
     @Column(name = "\"DatumZavrsetka\"", nullable = false)
     private LocalDate datumZavrsetka;
 

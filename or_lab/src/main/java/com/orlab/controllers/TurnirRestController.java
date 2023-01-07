@@ -1,15 +1,22 @@
 package com.orlab.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.orlab.model.Sponzori;
 import com.orlab.model.Turniri;
 import com.orlab.services.ResponseHandler;
 import com.orlab.services.TurnirException;
 import com.orlab.services.TurnirService;
+import ioinformarics.oss.jackson.module.jsonld.JsonldModule;
+import ioinformarics.oss.jackson.module.jsonld.JsonldResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
@@ -50,12 +57,33 @@ public class TurnirRestController {
     public ResponseEntity<?> getByTip(@PathVariable String tip){
 
         Optional<List<Turniri>> turnir= turnirService.getTurnirByTip(tip);
+        ArrayList<String> response = new ArrayList<String>();
+        try{
+            ObjectMapper objectMapper = JsonMapper.builder()
+                    .addModule(new JavaTimeModule())
+                    .build();
+            objectMapper.registerModule(new JsonldModule());
+
+            for(Turniri tur : turnir.get()){
+                String turnirJsonLd = null;
+                try{
+                    turnirJsonLd = objectMapper.writer().writeValueAsString(tur);
+                }catch (JsonProcessingException e) {
+                    e.printStackTrace();
+                }
+                response.add(turnirJsonLd);
+            }
+
+        } catch (Exception e ){
+            return ResponseHandler.generateResponse("Error processing tip "+tip,HttpStatus.NOT_FOUND, null);
+        }
+
         if (turnir.isEmpty() || turnir.get().isEmpty()){
             return ResponseHandler.generateResponse("Could not find turnir with tip "+tip,HttpStatus.NOT_FOUND, null);
             //return new ResponseEntity<>("Could not find turnir with tip "+tip, HttpStatus.NOT_FOUND);
         }
         else{
-            return ResponseHandler.generateResponse("Fetched turnir with entered type", HttpStatus.OK, turnir.get());
+            return ResponseHandler.generateResponse("Fetched turnir with entered type", HttpStatus.OK, response);
             //return new ResponseEntity<>(turnir, HttpStatus.OK);
         }
     }

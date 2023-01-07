@@ -81,6 +81,12 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
+		<dependency>
+			<groupId>com.io-informatics.oss</groupId>
+			<artifactId>jackson-jsonld</artifactId>
+			<version>0.1.1</version>
+		</dependency>
+
     </dependencies>
 
 	<build>
